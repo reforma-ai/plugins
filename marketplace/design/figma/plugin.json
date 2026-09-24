@@ -8,8 +8,6 @@
     },
     "extensions": {
         "reforma": {
-            "mcpServers": "./mcp.json",
-            "composio": "figma",
             "logo": "assets/logo.png",
             "interface": {
                 "displayName": "Figma",
@@ -20,6 +18,7 @@
             "logoSmall": "assets/logo-small.png",
             "agent": {
                 "mentions": [
+                    "figma",
                     "figma.com"
                 ]
             }
