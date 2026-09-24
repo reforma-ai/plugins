@@ -1,0 +1,26 @@
+{
+    "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+    "name": "hubspot",
+    "description": "CRM and marketing in HubSpot — contacts, deals, and campaigns from the project",
+    "author": {
+        "name": "HubSpot",
+        "url": "https://www.hubspot.com"
+    },
+    "homepage": "https://developers.hubspot.com/ai-tools/mcp",
+    "extensions": {
+        "reforma": {
+            "mcpServers": "./mcp.json",
+            "logo": "assets/logo.svg",
+            "interface": {
+                "displayName": "HubSpot",
+                "brandColor": "#FF7A59",
+                "logo": "assets/logo.svg"
+            },
+            "agent": {
+                "mentions": [
+                    "hubspot.com"
+                ]
+            }
+        }
+    }
+}

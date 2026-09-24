@@ -1,0 +1,27 @@
+{
+    "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+    "name": "google-analytics",
+    "description": "Site traffic and conversions from Google Analytics — ask the agent what happened",
+    "author": {
+        "name": "Google",
+        "url": "https://analytics.google.com"
+    },
+    "homepage": "https://developers.google.com/analytics/devguides/MCP",
+    "extensions": {
+        "reforma": {
+            "mcpServers": "./mcp.json",
+            "logo": "assets/logo.svg",
+            "interface": {
+                "displayName": "Google Analytics",
+                "brandColor": "#E37400",
+                "logo": "assets/logo.svg"
+            },
+            "agent": {
+                "mentions": [
+                    "analytics.google.com",
+                    "google-analytics.com"
+                ]
+            }
+        }
+    }
+}
