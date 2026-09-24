@@ -1,0 +1,26 @@
+{
+    "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+    "name": "semrush",
+    "description": "SEO and competitor data — keywords, traffic, and backlinks from Semrush",
+    "author": {
+        "name": "Semrush",
+        "url": "https://www.semrush.com"
+    },
+    "homepage": "https://developer.semrush.com/api/v4/introduction/semrush-mcp/",
+    "extensions": {
+        "reforma": {
+            "mcpServers": "./mcp.json",
+            "logo": "assets/logo.svg",
+            "interface": {
+                "displayName": "Semrush",
+                "brandColor": "#FF642D",
+                "logo": "assets/logo.svg"
+            },
+            "agent": {
+                "mentions": [
+                    "semrush.com"
+                ]
+            }
+        }
+    }
+}

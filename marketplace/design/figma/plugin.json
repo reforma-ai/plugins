@@ -9,6 +9,7 @@
     "extensions": {
         "reforma": {
             "mcpServers": "./mcp.json",
+            "composio": "figma",
             "logo": "assets/logo.png",
             "interface": {
                 "displayName": "Figma",

@@ -312,8 +312,7 @@
             "plugins": [
                 {
                     "name": "figma",
-                    "source": "./marketplace/design/figma",
-                    "disabled": true
+                    "source": "./marketplace/design/figma"
                 }
             ]
         },
@@ -392,6 +391,24 @@
                 {
                     "name": "amplitude",
                     "source": "./marketplace/analytics/amplitude"
+                },
+                {
+                    "name": "google-analytics",
+                    "source": "./marketplace/analytics/google-analytics"
+                },
+                {
+                    "name": "semrush",
+                    "source": "./marketplace/analytics/semrush"
+                }
+            ]
+        },
+        {
+            "id": "crm",
+            "name": "CRM",
+            "plugins": [
+                {
+                    "name": "hubspot",
+                    "source": "./marketplace/crm/hubspot"
                 }
             ]
         },
