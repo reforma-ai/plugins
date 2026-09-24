@@ -312,8 +312,7 @@
             "plugins": [
                 {
                     "name": "figma",
-                    "source": "./marketplace/design/figma",
-                    "disabled": true
+                    "source": "./marketplace/design/figma"
                 }
             ]
         },
