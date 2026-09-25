@@ -2,7 +2,8 @@
   "$schema": "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json",
   "mcpServers": {
     "figma": {
-      "composio": "figma"
+      "composio": "figma",
+      "description": "Turn Figma frames into code for the project"
     }
   }
 }
