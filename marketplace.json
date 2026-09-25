@@ -35,10 +35,6 @@
             "name": "Playbooks",
             "plugins": [
                 {
-                    "name": "frontend-design",
-                    "source": "./marketplace/playbooks/frontend-design"
-                },
-                {
                     "name": "web-design-guidelines",
                     "source": "./marketplace/playbooks/web-design-guidelines"
                 },
