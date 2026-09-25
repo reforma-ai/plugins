@@ -8,6 +8,7 @@
     },
     "extensions": {
         "reforma": {
+            "default": true,
             "logo": "assets/logo.png",
             "interface": {
                 "displayName": "Figma",
