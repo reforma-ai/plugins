@@ -61,6 +61,10 @@
             "name": "UI",
             "plugins": [
                 {
+                    "name": "shadcn",
+                    "source": "./marketplace/ui/shadcn"
+                },
+                {
                     "name": "coss",
                     "source": "./marketplace/ui/coss"
                 },
