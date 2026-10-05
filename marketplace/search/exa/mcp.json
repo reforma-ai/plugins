@@ -3,7 +3,7 @@
     "mcpServers": {
         "exa": {
             "type": "streamable-http",
-            "url": "https://mcp.exa.ai/mcp?tools=web_search_exa,web_fetch_exa,agent_run&login"
+            "url": "https://mcp.exa.ai/mcp?tools=web_search_exa,web_fetch_exa,web_search_advanced_exa,agent_run&login"
         }
     }
 }
