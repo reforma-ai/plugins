@@ -1,0 +1,28 @@
+{
+    "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+    "name": "exa",
+    "description": "Web search — current pages and sources from Exa",
+    "author": {
+        "name": "Exa",
+        "url": "https://exa.ai"
+    },
+    "homepage": "https://exa.ai/docs/reference/exa-mcp",
+    "extensions": {
+        "reforma": {
+            "logo": "assets/logo.svg",
+            "mcpServers": "./mcp.json",
+            "interface": {
+                "displayName": "Exa",
+                "brandColor": "#FFFFFF",
+                "logo": "assets/logo.svg",
+                "logoSmall": "assets/logo-small.svg"
+            },
+            "logoSmall": "assets/logo-small.svg",
+            "agent": {
+                "mentions": [
+                    "exa.ai"
+                ]
+            }
+        }
+    }
+}
