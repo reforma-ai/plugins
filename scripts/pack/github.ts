@@ -91,7 +91,7 @@ export async function fetchGithubTree(source: string, dest: string): Promise<voi
 
   const tree = (await treeRes.json()) as {
     truncated?: boolean;
-    tree?: Array<{ path?: string; type?: string }>;
+    tree?: Array<{ path?: string; type?: string; size?: number }>;
   };
 
   if (tree.truncated) {
@@ -100,7 +100,7 @@ export async function fetchGithubTree(source: string, dest: string): Promise<voi
 
   const prefix = parsed.path;
   const blobs = (tree.tree ?? []).filter(
-    (entry): entry is { path: string; type: string } => {
+    (entry): entry is { path: string; type: string; size?: number } => {
       return (
         entry.type === "blob" &&
         typeof entry.path === "string" &&
@@ -124,6 +124,16 @@ export async function fetchGithubTree(source: string, dest: string): Promise<voi
           entry.path.split("/").at(-1) ||
           "file"
         : entry.path.slice(prefix.length + 1);
+    const abs = join(dest, rel);
+
+    mkdirSync(dirname(abs), { recursive: true });
+
+    // raw.githubusercontent.com answers 501 to CI runners for empty files (`.gitkeep`).
+    if (entry.size === 0) {
+      writeFileSync(abs, "");
+      continue;
+    }
+
     const raw = await fetch(
       `https://raw.githubusercontent.com/${parsed.owner}/${parsed.repo}/${sha}/${entry.path}`,
     );
@@ -132,9 +142,6 @@ export async function fetchGithubTree(source: string, dest: string): Promise<voi
       throw new Error(`Could not fetch ${entry.path} (${raw.status})`);
     }
 
-    const abs = join(dest, rel);
-
-    mkdirSync(dirname(abs), { recursive: true });
     writeFileSync(abs, Buffer.from(await raw.arrayBuffer()));
   }
 }
