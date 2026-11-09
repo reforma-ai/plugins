@@ -2,13 +2,27 @@
  * Shared pack paths + tiny helpers.
  */
 import { existsSync } from "node:fs";
-import { join, resolve } from "node:path";
+import { basename, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 /** plugins/ repo root (this file lives in scripts/pack/). */
 export const ROOT = resolve(fileURLToPath(new URL("../..", import.meta.url)));
 export const OUT = join(ROOT, "dist", "catalog");
 export const TAR = join(ROOT, "dist", "catalog.tar.gz");
+
+/** Git and OS leftovers that no plugin reads. */
+const JUNK_FILES = new Set([
+  ".gitkeep",
+  ".keep",
+  ".gitignore",
+  ".gitattributes",
+  ".DS_Store",
+  "Thumbs.db",
+]);
+
+export function isJunkFile(path: string): boolean {
+  return JUNK_FILES.has(basename(path));
+}
 
 export function isRecord(value: unknown): value is Record<string, unknown> {
   return value !== null && typeof value === "object" && !Array.isArray(value);
