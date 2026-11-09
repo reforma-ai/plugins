@@ -1,6 +1,7 @@
 import { spawnSync } from "node:child_process";
 import { cpSync, mkdirSync, rmSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
+import { isJunkFile } from "./shared.ts";
 
 const GITHUB_SHA = /^[0-9a-f]{7,40}$/i;
 
@@ -104,6 +105,7 @@ export async function fetchGithubTree(source: string, dest: string): Promise<voi
       return (
         entry.type === "blob" &&
         typeof entry.path === "string" &&
+        !isJunkFile(entry.path) &&
         (prefix.length === 0 ||
           entry.path === prefix ||
           entry.path.startsWith(`${prefix}/`))
@@ -128,7 +130,7 @@ export async function fetchGithubTree(source: string, dest: string): Promise<voi
 
     mkdirSync(dirname(abs), { recursive: true });
 
-    // raw.githubusercontent.com answers 501 to CI runners for empty files (`.gitkeep`).
+    // raw.githubusercontent.com answers 501 to CI runners for empty files.
     if (entry.size === 0) {
       writeFileSync(abs, "");
       continue;
@@ -178,7 +180,7 @@ function cloneGithubTree(
   mkdirSync(dest, { recursive: true });
   cpSync(from, dest, {
     recursive: true,
-    filter: (path) => !path.includes("/.git"),
+    filter: (path) => !path.includes("/.git") && !isJunkFile(path),
   });
   rmSync(tmp, { recursive: true, force: true });
 }

@@ -26,7 +26,7 @@ import {
   rewritePluginManifest,
   unfoldReformaExtension,
 } from "./extensions.ts";
-import { OUT, ROOT, TAR, parseMarketplace, type MarketplaceListing } from "./shared.ts";
+import { OUT, ROOT, TAR, isJunkFile, parseMarketplace, type MarketplaceListing } from "./shared.ts";
 import { publishCatalogLogosFromEnv } from "./publish-logos.ts";
 import { logCatalogSummary } from "./summary.ts";
 import { normalizePluginTools } from "./tools.ts";
@@ -44,7 +44,7 @@ async function packPlugin(listing: MarketplaceListing): Promise<void> {
     }
 
     mkdirSync(dest, { recursive: true });
-    cpSync(from, dest, { recursive: true });
+    cpSync(from, dest, { recursive: true, filter: (path) => !isJunkFile(path) });
   }
 
   normalizePluginLayout(dest);
