@@ -47,7 +47,8 @@ jobs:
                       --notes "Marketplace snapshot for ${GITHUB_SHA}" \
                       || gh release view "$TAG"
                   else
-                    echo "Release $TAG already exists"
+                    echo "Release $TAG already exists, replacing its catalog"
+                    gh release upload "$TAG" dist/catalog.tar.gz --clobber
                   fi
 
                   mapfile -t stale < <(
