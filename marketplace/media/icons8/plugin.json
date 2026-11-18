@@ -1,0 +1,25 @@
+{
+    "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+    "name": "icons8",
+    "description": "Icons and illustrations you can search and drop into the project",
+    "author": {
+        "name": "Icons8",
+        "url": "https://icons8.com"
+    },
+    "extensions": {
+        "reforma": {
+            "mcpServers": "./mcp.json",
+            "logo": "assets/logo.svg",
+            "interface": {
+                "displayName": "Icons8",
+                "brandColor": "#1FB141",
+                "logo": "assets/logo.svg"
+            },
+            "agent": {
+                "mentions": [
+                    "icons8.com"
+                ]
+            }
+        }
+    }
+}

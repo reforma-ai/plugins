@@ -355,6 +355,10 @@
                     "source": "./marketplace/media/svgator"
                 },
                 {
+                    "name": "icons8",
+                    "source": "./marketplace/media/icons8"
+                },
+                {
                     "name": "lottiefiles",
                     "source": "./marketplace/media/lottiefiles"
                 },
