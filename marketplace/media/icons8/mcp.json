@@ -1,0 +1,9 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json",
+  "mcpServers": {
+    "icons8": {
+      "type": "streamable-http",
+      "url": "https://mcp.icons8.com/mcp/"
+    }
+  }
+}
